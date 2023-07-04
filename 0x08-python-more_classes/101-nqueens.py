@@ -1,4 +1,22 @@
 #!/usr/bin/python3
+"""Program to compute solutions to the 'N Queens' problem.
+
+The 'N Queens' problem is to enumerate all the possible arrangements
+of N Queens on an NxN chessboard such that no two pieces lie along
+the same vertical, horizontal, or diagonal. It is difficult to compute
+by brute force because even for relatively small `n` the number of
+arrangements to test grows factorially (N**2 choose N). The solution
+uses backtracking to quickly prune the tree of possible arrangments by
+abandoning unsuccessful branches once a partial solution can be rejected.
+
+Example:
+    This program can be invoked from the command line by specifying the
+    value for `n`, such as:
+
+        $ ./nqueens 8
+"""
+
+
 def nqueens(n, c=[]):
     """Routine to recursively compute solutions to N queens problem.
 
@@ -50,14 +68,35 @@ def reject(n, c):
 
 
 def accept(n, c):
+    """Subroutine to test whether current list of positions is a solution.
 
+    If the current candidate solution has not been rejected and is of
+    length `n`, then it can be assumed to be a valid solution.
+
+    Args:
+        n (int): dimensions of board and number of queens.
+        c (list): list of current candidate positions for solution.
+
+    Returns: True if len(c) == n, otherwise False.
+    """
     if len(c) == n:
         return True
     return False
 
 
 def first_candidate(n, c):
+    """Subroutine to add position to the end of the candidate solution.
 
+    If the previous position was not rejected and the length of the
+    `c` is less than `n`, this function adds the next candidate position
+    following the last position.
+
+    Args:
+        n (int): dimensions of board and number of queens.
+        c (list): list of current candidate positions for solution.
+
+    Returns: New list with added position, or None if len(c) == n.
+    """
     if len(c) == n:
         return None
     try:
@@ -73,9 +112,21 @@ def first_candidate(n, c):
 
 
 def next_candidate(n, s):
+    """Subroutine to update last position of candidate solution.
 
+    If the previous solution was rejected, the final position is
+    advanced to the next position, unless the end of the board
+    has been reached, in which case this function returns None.
+
+    Args:
+        n (int): dimensions of board and number of queens.
+        s (list): list of current candidate positions for solution.
+
+    Returns: New list of candidate positions for solution, or None if
+        at end of board.
+    """
     last = s[-1]
-    if last1] < n-1:
+    if last[1] < n-1:
         return s[:-1] + [[last[0], last[1]+1]]
     elif last[0] < n-1:
         return s[:-1] + [[last[0]+1, 0]]
