@@ -1,12 +1,11 @@
--- List all shows with the genre Comedy from `hbtn_0d_tvshows`
-SELECT tv_shows.title AS title
-  FROM tv_shows
- WHERE tv_shows.title NOT IN
-       (SELECT tv_shows.title
-          FROM tv_shows
-    INNER JOIN tv_show_genres
-    	    ON tv_shows.id = tv_show_genres.show_id
-    INNER JOIN tv_genres
-    	    ON tv_show_genres.genre_id = tv_genres.id
-	 WHERE tv_genres.name = "Comedy")
-ORDER BY tv_shows.title ASC;
+-- lists all shows from hbtn_0d_tvshows_rate by their rating.
+-- Each record should display: tv_shows.title - rating sum
+-- Results must be sorted in acending order by the rating
+-- The database name will be passed as an argument of the mysql command
+
+SELECT tv_shows.title, SUM(tv_show_ratings.rate) AS rating
+FROM tv_shows
+INNER JOIN tv_show_ratings
+ON tv_shows.id = tv_show_ratings.show_id
+GROUP BY tv_shows.id
+ORDER BY rating DESC;
