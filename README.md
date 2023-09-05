@@ -26,7 +26,7 @@ This repository contains a collection of Python and SQL projects completed as pa
 
 ### 0x05-python-exceptions
 - **Description**: Introduction to handling exceptions and errors in Python.
-- **Folder**: Update `101-safe_function.py`
+- **Folder**: `python`
 
 ### 0x06-python-classes
 - **Description**: Introduction to Python classes and objects.
@@ -34,7 +34,7 @@ This repository contains a collection of Python and SQL projects completed as pa
 
 ### 0x07-python-test_driven_development
 - **Description**: Focuses on test-driven development in Python.
-- **Folder**: Merge branch 'master' of https://github.com/gabbyedgar/alx-higher_lev…
+
 
 ### 0x08-python-more_classes
 - **Description**: Further exploration of Python classes and object-oriented programming.
@@ -64,11 +64,11 @@ This repository contains a collection of Python and SQL projects completed as pa
 
 ### 0x0E-SQL_more_queries
 - **Description**: Covers more advanced SQL queries and joins.
-- **Folder**: (No specific folder mentioned)
+
 
 Please navigate to each project's respective folder to view the code and detailed project descriptions.
 
 
 
-This project is for the ALX Software Engineering program.
-Author: Ochiba Gabriel
+**This project is for the ALX Software Engineering program**.
+**Author**: `Ochiba Gabriel`
